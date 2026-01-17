@@ -6,16 +6,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 
-// Updated with "Cooler" Colors
 const CATEGORIES = [
-  { title: "Finance", count: "25 articles", color: "bg-emerald-100", icon: "💰" },
-  { title: "IT", count: "18 articles", color: "bg-indigo-100", icon: "💻" },
-  { title: "Business", count: "32 articles", color: "bg-amber-100", icon: "📊" },
-  { title: "Education", count: "14 articles", color: "bg-rose-100", icon: "🎓" },
-  { title: "Sports", count: "40 articles", color: "bg-orange-100", icon: "⚽" },
-  { title: "Design", count: "28 articles", color: "bg-violet-100", icon: "🎨" },
-  { title: "Technology", count: "45 articles", color: "bg-cyan-100", icon: "🤖" },
-  { title: "Environment", count: "12 articles", color: "bg-teal-100", icon: "🌱" },
+  { title: "Finance", count: "25 articles", color: "bg-emerald-100", img: "/icons8-bank-100.png" },
+  { title: "IT", count: "18 articles", color: "bg-indigo-100", img: "/icons8-cyber-security-100.png" },
+  { title: "Business", count: "32 articles", color: "bg-amber-100", img: "/icons8-investment-100.png" },
+  { title: "Education", count: "14 articles", color: "bg-rose-100", img: "/icons8-education-100.png" },
+  { title: "Sports", count: "40 articles", color: "bg-orange-100", img: "/icons8-pass-the-baton-100.png" },
+  { title: "Design", count: "28 articles", color: "bg-violet-100", img: "/icons8-design-100.png" },
+  { title: "Technology", count: "45 articles", color: "bg-cyan-100", img: "/icons8-technology-100.png" },
+  { title: "Environment", count: "12 articles", color: "bg-teal-100", img: "/icons8-environment-100.png" },
 ];
 
 const Home = () => {
@@ -29,9 +28,12 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-10 h-16 md:h-20 flex items-center justify-between gap-2 md:gap-4">
           
           {/* Logo & Company Name */}
-          <div className="flex items-center gap-2 md:gap-3 cursor-pointer flex-shrink-0" onClick={() => window.location.reload()}>
+          <div 
+            className="flex items-center gap-2 md:gap-3 cursor-pointer flex-shrink-0" 
+            onClick={() => navigate("/")}
+          >
              <img 
-               src="/camonk-logo.png" 
+               src="/camonk-logo.webp" 
                alt="Logo" 
                className="h-8 w-8 md:h-10 md:w-10 object-contain"
                onError={(e) => {
@@ -97,7 +99,7 @@ const Home = () => {
                 title={cat.title} 
                 count={cat.count} 
                 color={cat.color} 
-                icon={cat.icon} 
+                img={cat.img} 
               />
             ))}
           </div>
@@ -156,7 +158,6 @@ const Home = () => {
                     </p>
                     
                     <div className="mt-auto flex items-center gap-3 pt-3 md:pt-4 border-t border-slate-50">
-                      {/* Author Logo */}
                       <div className="h-8 w-8 md:h-9 md:w-9 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-100">
                         <img src="/camonk-logo.webp" alt="CA Monk" className="w-5 h-5 md:w-6 md:h-6 object-contain" />
                       </div>
@@ -239,15 +240,16 @@ const Home = () => {
   );
 };
 
-// Updated Category Card for better mobile alignment
-const CategoryCard = ({ title, count, color, icon }: any) => (
+// Updated Category Card to use IMG tag instead of Icon
+const CategoryCard = ({ title, count, color, img }: any) => (
   <div className={`
     p-3 md:p-5 rounded-[1.5rem] md:rounded-[2rem] border border-transparent 
     flex items-center gap-3 md:gap-4 hover:shadow-lg transition-all cursor-pointer group
-    ${color} /* Uses the cool color passed from props */
+    ${color} 
   `}>
-    <div className="h-10 w-10 md:h-16 md:w-16 rounded-xl md:rounded-2xl bg-white/60 flex items-center justify-center text-xl md:text-3xl shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
-        {icon}
+    <div className="h-10 w-10 md:h-16 md:w-16 rounded-xl md:rounded-2xl bg-white/60 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
+        {/* IMAGE RENDERED HERE */}
+        <img src={img} alt={title} className="w-6 h-6 md:w-8 md:h-8 object-contain" />
     </div>
     <div className="min-w-0 flex-1">
       <h3 className="font-bold text-sm md:text-lg text-slate-900 truncate">{title}</h3>
