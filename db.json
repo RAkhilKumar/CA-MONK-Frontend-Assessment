@@ -3,7 +3,9 @@
     {
       "id": "1",
       "title": "The Future of Fintech 2026",
-      "category": ["Finance"],
+      "category": [
+        "Finance"
+      ],
       "description": "How AI and Blockchain are merging to create seamless banking experiences.",
       "date": "2026-01-12T09:00:00.000Z",
       "coverImage": "https://plus.unsplash.com/premium_photo-1664478157873-50d4963c1d11?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -12,7 +14,9 @@
     {
       "id": "2",
       "title": "Mastering React Server Components",
-      "category": ["IT"],
+      "category": [
+        "IT"
+      ],
       "description": "A deep dive into the architecture of modern React applications and server-side logic.",
       "date": "2026-01-10T14:30:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
@@ -21,7 +25,9 @@
     {
       "id": "3",
       "title": "Minimalist UI Design Principles",
-      "category": ["Design"],
+      "category": [
+        "Design"
+      ],
       "description": "Why less is more when building user-centric interfaces for complex applications.",
       "date": "2026-01-08T11:20:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
@@ -30,7 +36,9 @@
     {
       "id": "4",
       "title": "Sustainable Tech Ecosystems",
-      "category": ["Environment"],
+      "category": [
+        "Environment"
+      ],
       "description": "Reducing the carbon footprint of large-scale data centers and AI models.",
       "date": "2026-01-05T16:45:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80",
@@ -39,7 +47,9 @@
     {
       "id": "5",
       "title": "The Rise of No-Code Tools",
-      "category": ["Business"],
+      "category": [
+        "Business"
+      ],
       "description": "Empowering non-developers to build robust applications and scale businesses.",
       "date": "2026-01-02T10:15:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=800&q=80",
@@ -48,7 +58,9 @@
     {
       "id": "6",
       "title": "Data Analytics in Modern Sports",
-      "category": ["Sports"],
+      "category": [
+        "Sports"
+      ],
       "description": "How big data is changing recruitment and strategy in professional leagues.",
       "date": "2025-12-28T09:10:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80",
@@ -57,7 +69,9 @@
     {
       "id": "7",
       "title": "The Shift to Hybrid Learning",
-      "category": ["Education"],
+      "category": [
+        "Education"
+      ],
       "description": "Merging physical classrooms with digital flexibility for better student outcomes.",
       "date": "2025-12-25T11:00:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80",
@@ -66,7 +80,9 @@
     {
       "id": "8",
       "title": "AI Agents: The Next Frontier",
-      "category": ["Technology"],
+      "category": [
+        "Technology"
+      ],
       "description": "Moving beyond chatbots to autonomous agents that perform complex tasks.",
       "date": "2025-12-20T08:30:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
@@ -75,7 +91,9 @@
     {
       "id": "9",
       "title": "The Psychology of Color in UX",
-      "category": ["Design"],
+      "category": [
+        "Design"
+      ],
       "description": "How color choices influence user behavior and brand perception.",
       "date": "2025-12-18T10:00:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&q=80",
@@ -84,7 +102,9 @@
     {
       "id": "10",
       "title": "Cybersecurity Threats in 2026",
-      "category": ["IT"],
+      "category": [
+        "IT"
+      ],
       "description": "Preparing for quantum attacks and AI-driven social engineering.",
       "date": "2025-12-15T13:45:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
@@ -93,7 +113,9 @@
     {
       "id": "11",
       "title": "The New Creator Economy",
-      "category": ["Business"],
+      "category": [
+        "Business"
+      ],
       "description": "Moving from ad revenue to direct community support and ownership.",
       "date": "2025-12-12T09:30:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&q=80",
@@ -102,7 +124,9 @@
     {
       "id": "12",
       "title": "Mental Health in E-Sports",
-      "category": ["Sports"],
+      "category": [
+        "Sports"
+      ],
       "description": "Addressing burnout and physical strain in competitive gaming.",
       "date": "2025-12-10T11:15:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80",
@@ -111,7 +135,9 @@
     {
       "id": "13",
       "title": "Ocean Cleanup Technology",
-      "category": ["Environment"],
+      "category": [
+        "Environment"
+      ],
       "description": "Autonomous systems fighting the Great Pacific Garbage Patch.",
       "date": "2025-12-05T15:20:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1621451537084-482c73073a0f?w=800&q=80",
@@ -120,7 +146,9 @@
     {
       "id": "14",
       "title": "The Era of Micro-Credentials",
-      "category": ["Education"],
+      "category": [
+        "Education"
+      ],
       "description": "Why skills-based hiring is replacing the traditional 4-year degree.",
       "date": "2025-12-01T09:00:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80",
@@ -129,7 +157,9 @@
     {
       "id": "15",
       "title": "Quantum Computing Breakthroughs",
-      "category": ["Technology"],
+      "category": [
+        "Technology"
+      ],
       "description": "Moving from theoretical physics to practical application.",
       "date": "2025-11-28T14:00:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
@@ -138,11 +168,24 @@
     {
       "id": "16",
       "title": "Personal Finance for Gen Alpha",
-      "category": ["Finance"],
+      "category": [
+        "Finance"
+      ],
       "description": "How the next generation is learning about money in the metaverse.",
       "date": "2025-11-25T10:30:00.000Z",
       "coverImage": "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "content": "Generation Alpha (born after 2010) is the first truly digital-native generation. Their first interaction with money isn't a piggy bank; it's Robux or V-Bucks. Financial literacy education is adapting to meet them where they are—in gaming environments and social platforms.\n\nNew tools for financial education:\n- **Gamified Savings Apps:** Turning chores and savings into quests.\n- **Crypto Wallets for Kids:** Safe, supervised introductions to digital assets.\n- **Creator Economy Literacy:** Teaching kids how to monetize hobbies early.\n\nParents face the challenge of teaching value in a cashless world. When money is just a number on a screen, the concept of scarcity can be lost. Apps like Greenlight and GoHenry are bridging this gap, giving parents control while giving kids autonomy.\n\nThe goal is to raise a generation that is not just consumers, but investors. By demystifying compound interest and asset classes early, we empower Gen Alpha to navigate a complex financial future with confidence."
+    },
+    {
+      "id": "87ad",
+      "title": "The future of AI",
+      "category": [
+        "IT"
+      ],
+      "description": "The future of AI is about partnership, not replacement. AI will become more human-aware, more responsible, and deeply woven into daily life, quietly boosting productivity, creativity, and decision-making across every industry.",
+      "content": "1. AI as a Daily Companion\n\nAI will move from being a tool to a trusted assistant. From personal productivity and learning to health tracking and finance, AI will work in the background, adapting to individual needs and habits.\n\n2. Smarter, More Human-Centered AI\n\nFuture AI systems will better understand context, emotions, and intent. This means more natural conversations, ethical decision-making, and systems designed around human values rather than raw automation.\n\n3. Transformation of Work, Not Job Loss\n\nAI will automate repetitive tasks while creating new roles in creativity, strategy, data, and AI management. Humans will focus more on thinking, designing, and leading, while AI handles speed and scale.\n\n4. AI in Healthcare and Education\n\nIn healthcare, AI will help with early diagnosis, personalized treatment, and remote care.\nIn education, AI will enable personalized learning paths, making education more inclusive and effective.\n\n5. Creative Intelligence\n\nAI will act as a creative partner in design, music, writing, film, and marketing. The future is co-creation, where human imagination sets direction and AI accelerates execution.\n\n6. Ethical and Responsible AI\n\nAs AI grows more powerful, ethics, transparency, and regulation will become central. The future of AI depends on trust, fairness, data privacy, and responsible use.\n\n7. AI-Powered Societies\n\nSmart cities, intelligent transportation, energy optimization, and sustainable systems will rely on AI to improve quality of life while reducing environmental impact.",
+      "coverImage": "https://www.lifewire.com/thmb/RdJWHg4p_htryCzlZT-SpX20HdE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1351969920-50bc56a6de284580ae75c31cd182bf9f.jpg",
+      "date": "2026-01-17T18:45:38.557Z"
     }
   ]
 }
