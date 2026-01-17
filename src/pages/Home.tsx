@@ -1,7 +1,8 @@
+import { useState, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchBlogs } from "../api/blogs";
 import { useNavigate } from "react-router-dom";
-import { Search, Bell, Filter, ChevronRight, BookOpen, PenTool, Mail, ArrowRight, Twitter, Linkedin, Facebook } from "lucide-react";
+import { Search, Bell, ChevronRight, BookOpen, PenTool, Mail, ArrowRight, Twitter, Linkedin, Facebook, XCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -19,7 +20,32 @@ const CATEGORIES = [
 
 const Home = () => {
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const articlesRef = useRef<HTMLDivElement>(null); // Ref for scrolling
+  
   const { data: blogs, isLoading } = useQuery({ queryKey: ["blogs"], queryFn: fetchBlogs });
+
+  // Handle Click: Filter & Scroll
+  const handleCategoryClick = (categoryTitle: string) => {
+    if (selectedCategory === categoryTitle) {
+      setSelectedCategory(null); // Deselect
+    } else {
+      setSelectedCategory(categoryTitle);
+      // Smooth scroll to the articles section
+      setTimeout(() => {
+        articlesRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  };
+
+  // Filter Logic
+  const filteredBlogs = selectedCategory
+    ? blogs?.filter((blog: any) => 
+        Array.isArray(blog.category) 
+          ? blog.category.includes(selectedCategory)
+          : blog.category === selectedCategory
+      )
+    : blogs;
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col">
@@ -27,13 +53,12 @@ const Home = () => {
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 md:px-10 h-16 md:h-20 flex items-center justify-between gap-2 md:gap-4">
           
-          {/* Logo & Company Name */}
           <div 
             className="flex items-center gap-2 md:gap-3 cursor-pointer flex-shrink-0" 
-            onClick={() => navigate("/")}
+            onClick={() => { setSelectedCategory(null); navigate("/"); }}
           >
              <img 
-               src="/camonk-logo.webp" 
+               src="/camonk-logo.png" 
                alt="Logo" 
                className="h-8 w-8 md:h-10 md:w-10 object-contain"
                onError={(e) => {
@@ -45,13 +70,11 @@ const Home = () => {
              <span className="text-lg md:text-2xl font-extrabold text-slate-900 tracking-tight">CA MONK</span>
           </div>
 
-          {/* Search Bar (Hidden on mobile) */}
           <div className="hidden md:block flex-1 max-w-md relative mx-4">
              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
              <Input className="pl-12 bg-slate-100 border-none rounded-full h-11 focus-visible:ring-black" placeholder="Search for articles..." />
           </div>
 
-          {/* Right Actions */}
           <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
              <Button size="icon" variant="ghost" className="rounded-full text-slate-600 hover:bg-slate-100 h-9 w-9 md:h-10 md:w-10">
                <Bell size={20} className="md:w-[22px] md:h-[22px]" />
@@ -86,9 +109,15 @@ const Home = () => {
           <div className="flex items-center justify-between mb-4 md:mb-6">
              <div className="flex items-center gap-2 md:gap-3">
                <h2 className="text-xl md:text-2xl font-bold text-slate-900">Explore Topics</h2>
+               {selectedCategory && (
+                 <span className="bg-black text-white text-xs px-3 py-1 rounded-full flex items-center gap-2 animate-in fade-in">
+                   {selectedCategory}
+                   <XCircle size={14} className="cursor-pointer hover:text-red-400" onClick={(e) => { e.stopPropagation(); setSelectedCategory(null); }} />
+                 </span>
+               )}
              </div>
-             <Button variant="ghost" className="rounded-full text-slate-500 hover:bg-slate-100 hover:text-black text-sm md:text-base px-2 md:px-4">
-               View all <ChevronRight size={16} className="ml-1"/>
+             <Button variant="ghost" onClick={() => setSelectedCategory(null)} className="rounded-full text-slate-500 hover:bg-slate-100 hover:text-black text-sm md:text-base px-2 md:px-4">
+               {selectedCategory ? "Show All" : "View all"} <ChevronRight size={16} className="ml-1"/>
              </Button>
           </div>
           
@@ -100,21 +129,24 @@ const Home = () => {
                 count={cat.count} 
                 color={cat.color} 
                 img={cat.img} 
+                onClick={() => handleCategoryClick(cat.title)}
+                isSelected={selectedCategory === cat.title}
               />
             ))}
           </div>
         </div>
 
-        {/* Articles Section */}
-        <div className="pb-10 md:pb-20">
+        {/* Articles Section (With REF for scrolling) */}
+        <div className="pb-10 md:pb-20" ref={articlesRef}>
           <div className="flex items-center justify-between mb-6 md:mb-8">
              <div className="flex items-center gap-2 md:gap-3">
-               <h2 className="text-xl md:text-2xl font-bold text-slate-900">Latest Articles</h2>
-               <span className="bg-slate-200 text-slate-700 px-2 py-0.5 md:py-1 rounded-lg text-[10px] md:text-xs font-bold">{blogs?.length || 0}</span>
+               <h2 className="text-xl md:text-2xl font-bold text-slate-900">
+                 {selectedCategory ? `${selectedCategory} Articles` : "Latest Articles"}
+               </h2>
+               <span className="bg-slate-200 text-slate-700 px-2 py-0.5 md:py-1 rounded-lg text-[10px] md:text-xs font-bold">
+                 {filteredBlogs?.length || 0}
+               </span>
              </div>
-             <Button variant="outline" className="rounded-full gap-2 border-slate-300 hidden sm:flex">
-               <Filter size={16} /> Sort by
-             </Button>
           </div>
 
           {isLoading ? (
@@ -127,9 +159,20 @@ const Home = () => {
                 </div>
               ))}
             </div>
+          ) : filteredBlogs?.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+               <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+                  <Search className="text-slate-400" size={32} />
+               </div>
+               <h3 className="text-xl font-bold text-slate-900 mb-2">No articles found</h3>
+               <p className="text-slate-500 mb-6">We couldn't find any articles for "{selectedCategory}".</p>
+               <Button onClick={() => setSelectedCategory(null)} variant="outline" className="rounded-full">
+                 Clear Filter
+               </Button>
+            </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-              {blogs?.map((blog: any) => (
+              {filteredBlogs?.map((blog: any) => (
                 <div 
                   key={blog.id} 
                   onClick={() => navigate(`/blog/${blog.id}`)}
@@ -175,7 +218,7 @@ const Home = () => {
       </main>
 
       {/* Footer */}
-      <footer className="w-full bg-black text-white pt-12 md:pt-16 pb-8 mt-auto">
+      <footer className="w-full bg-black text-white pt-12 md:pt-16 pb-8 mt-auto rounded-t-[2rem] md:rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12">
             
@@ -229,6 +272,17 @@ const Home = () => {
 
           <div className="pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <p>© 2026 CA Monk. All rights reserved.</p>
+            <p className="text-center">
+              Developed by{" "}
+              <a 
+                href="https://www.linkedin.com/in/rotta-akhil-kumar/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-bold text-slate-400 hover:text-white transition-colors underline decoration-slate-700 hover:decoration-white"
+              >
+                Akhil Kumar Rotta
+              </a>
+            </p>
             <div className="flex gap-6">
               <span className="hover:text-white cursor-pointer">Privacy Policy</span>
               <span className="hover:text-white cursor-pointer">Terms of Service</span>
@@ -240,15 +294,17 @@ const Home = () => {
   );
 };
 
-// Updated Category Card to use IMG tag instead of Icon
-const CategoryCard = ({ title, count, color, img }: any) => (
-  <div className={`
-    p-3 md:p-5 rounded-[1.5rem] md:rounded-[2rem] border border-transparent 
-    flex items-center gap-3 md:gap-4 hover:shadow-lg transition-all cursor-pointer group
-    ${color} 
-  `}>
+const CategoryCard = ({ title, count, color, img, onClick, isSelected }: any) => (
+  <div 
+    onClick={onClick}
+    className={`
+      p-3 md:p-5 rounded-[1.5rem] md:rounded-[2rem] 
+      flex items-center gap-3 md:gap-4 hover:shadow-lg transition-all cursor-pointer group relative
+      ${color} 
+      ${isSelected ? 'ring-2 ring-black ring-offset-2 scale-[1.02]' : ''} 
+    `}
+  >
     <div className="h-10 w-10 md:h-16 md:w-16 rounded-xl md:rounded-2xl bg-white/60 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform flex-shrink-0">
-        {/* IMAGE RENDERED HERE */}
         <img src={img} alt={title} className="w-6 h-6 md:w-8 md:h-8 object-contain" />
     </div>
     <div className="min-w-0 flex-1">

@@ -110,8 +110,8 @@ const Detail = () => {
                  
                  {/* Random Profiles Pile placed here */}
                  <div className="flex -space-x-2">
-                     <div className="h-8 w-8 rounded-full bg-slate-200 border-2 border-white"></div>
-                     <div className="h-8 w-8 rounded-full bg-slate-300 border-2 border-white"></div>
+                     <img src="https://i.pravatar.cc/150?u=share" alt="User" className="h-8 w-8 rounded-full border-2 border-white object-cover" />
+                     <img src="https://i.pravatar.cc/150?u=share" alt="User" className="h-8 w-8 rounded-full border-2 border-white object-cover" />
                      <img src="https://i.pravatar.cc/150?u=share" alt="User" className="h-8 w-8 rounded-full border-2 border-white object-cover" />
                  </div>
               </div>
@@ -156,7 +156,7 @@ const Detail = () => {
       </div>
 
       {/* Footer */}
-      <footer className="w-full bg-black text-white pt-12 md:pt-16 pb-8 mt-auto">
+      <footer className="w-full bg-black text-white pt-12 md:pt-16 pb-8 mt-auto rounded-t-[2rem] md:rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-12">
             
@@ -210,6 +210,17 @@ const Detail = () => {
 
           <div className="pt-8 border-t border-gray-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
             <p>© 2026 CA Monk. All rights reserved.</p>
+            <p className="text-center">
+              Developed by{" "}
+              <a 
+                href="https://www.linkedin.com/in/rotta-akhil-kumar/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-bold text-slate-400 hover:text-white transition-colors underline decoration-slate-700 hover:decoration-white"
+              >
+                Akhil Kumar Rotta
+              </a>
+            </p>
             <div className="flex gap-6">
               <span className="hover:text-white cursor-pointer">Privacy Policy</span>
               <span className="hover:text-white cursor-pointer">Terms of Service</span>
